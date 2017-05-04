@@ -1,24 +1,32 @@
 package app.cddic.com.smarter.activity.base;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.View;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SearchView;
 import android.widget.TextView;
+
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 import app.cddic.com.smarter.R;
 import app.cddic.com.smarter.adapter.DrawerFragmentPagerAdapter;
-import app.cddic.com.smarter.adapter.SettingItemsAdapter;
+import app.cddic.com.smarter.adapter.DrawerItemsAdapter;
 
 
 public class MainActivity extends BaseActivity {
+
+    private static final String TAG = "MainActivity";
 
     private static final int UN_CHOOSE_COLOR = 0xff3f51b5;
     private static final int CHOOSE_COLOR = 0xff47479f;
@@ -29,12 +37,29 @@ public class MainActivity extends BaseActivity {
     private DrawerLayout mDrawerLayout;
     private ViewPager mViewPager;
     private ImageView mUserAvatarOnTopBar;
-    private ListView mSettingItemsListView;
+    private ImageView mUserAvatarIv;
     private RadioGroup mBottomBarRadioGroup;
-    private TextView mCurrentFragmentNameTextView;
+    private TextView mCurrentFragmentNameTv;
+    private SearchView mSearchView;
+    private ExpandableListView mDrawerItemsElv;
 
     private int[] mFragmentName = new int[] {R.string.device, R.string.contact, R.string.message};
     private List<RadioButton> mRadioButtonList = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        initViews();
+        setupAdapters();
+        setupListeners();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSearchView.clearFocus();
+    }
 
     @Override
     public void onHandleMsg(int MsgType) {
@@ -42,22 +67,32 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        findViews();
-        setAdapter();
-        setListener();
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
-    private void findViews() {
+    private void initViews() {
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mUserAvatarOnTopBar = (ImageView) findViewById(R.id.userAvatarOnTopBar_ImageView);
-        mCurrentFragmentNameTextView = (TextView) findViewById(R.id.currentFragmentName_textView);
-        mCurrentFragmentNameTextView.setText(R.string.device);
-        mSettingItemsListView = (ListView) findViewById(R.id.settingItems_listView);
+        mUserAvatarIv = (ImageView) findViewById(R.id.userAvatar_ImageView);
+        mSearchView = (SearchView) findViewById(R.id.searchView);
+        changeSearchViewStyle();
+
+        mCurrentFragmentNameTv = (TextView) findViewById(R.id.currentFragmentName_textView);
+        mCurrentFragmentNameTv.setText(R.string.device);
+
+        mDrawerItemsElv =
+                (ExpandableListView) findViewById(R.id.drawerItems_expandableListView);
+        mDrawerItemsElv.setGroupIndicator(null);
+        mDrawerItemsElv.setDivider(null);
         mBottomBarRadioGroup = (RadioGroup) findViewById(R.id.bottomBar_RadioGroup);
+
         RadioButton radioButton = (RadioButton) findViewById(R.id.device_radioButton);
         radioButton.setBackgroundColor(CHOOSE_COLOR);
         mRadioButtonList.add(DEVICE, radioButton);
@@ -67,16 +102,24 @@ public class MainActivity extends BaseActivity {
         mRadioButtonList.add(MESSAGE, radioButton);
     }
 
-    private void setAdapter() {
-        SettingItemsAdapter settingItemsAdapter = new SettingItemsAdapter(this);
-        mSettingItemsListView.setAdapter(settingItemsAdapter);
+    private void setupAdapters() {
+        DrawerItemsAdapter drawerItemsAdapter = new DrawerItemsAdapter(this);
+        mDrawerItemsElv.setAdapter(drawerItemsAdapter);
         DrawerFragmentPagerAdapter drawerFragmentPagerAdapter =
                 new DrawerFragmentPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(drawerFragmentPagerAdapter);
-
     }
 
-    private void setListener() {
+    private void setupListeners() {
+
+        mUserAvatarIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, SingleFragmentActivity.class);
+//                startActivity(intent);
+            }
+        });
+
         mUserAvatarOnTopBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,12 +167,27 @@ public class MainActivity extends BaseActivity {
                 switchCurrentState(current);
             }
         });
+        mDrawerItemsElv.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                skipToChild(groupPosition, childPosition);
+                return true;
+            }
+        });
+    }
+
+    private void skipToChild(int groupPosition, int childPosition) {
+        if (groupPosition != DrawerItemsAdapter.EXPANDABLE_POSITION) {
+            return;
+        }
+//        Intent intent = SettingActivity.newInstance(this, childPosition);
+//        startActivity(intent);
     }
 
     private void switchCurrentState(int current) {
         resetBackgroundColor();
         mRadioButtonList.get(current).setBackgroundColor(CHOOSE_COLOR);
-        mCurrentFragmentNameTextView.setText(mFragmentName[current]);
+        mCurrentFragmentNameTv.setText(mFragmentName[current]);
         mViewPager.setCurrentItem(current);
     }
 
@@ -139,4 +197,22 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    private void changeSearchViewStyle() {
+        if (Build.VERSION.SDK_INT < 21) {
+            return;
+        }
+        mSearchView.setBackground(getDrawable(R.drawable.search_view));
+        try {
+            Class<?> searchViewClass = mSearchView.getClass();
+            Field field = searchViewClass.getDeclaredField("mSearchPlate");
+            field.setAccessible(true);
+            View view = (View) field.get(mSearchView);
+            view.setBackground(null);
+            field.setAccessible(false);
+        } catch (NoSuchFieldException ne) {
+            Log.e(TAG, "get field ", ne);
+        } catch (IllegalAccessException iae) {
+            Log.e(TAG, "field.get() ", iae);
+        }
+    }
 }

@@ -23,7 +23,8 @@
             <!--</intent-filter>-->
         </activity>
         <!--主界面-->
-        <activity android:name=".activity.base.MainActivity">
+        <activity android:name=".activity.base.MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
