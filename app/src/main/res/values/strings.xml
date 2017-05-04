@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">SmartSecurity-Manager</string>
+    <string name="guide_item_1">引导页1</string>
+    <string name="guide_item_2">引导页2</string>
+    <string name="guide_item_3">引导页3</string>
+    <string name="search">搜索</string>
+    <string name="SmartManager">智能安防</string>
+    <string name="loginFailed">未登录成功，请检查你的网络设置</string>
+    <string name="login">登录</string>
+    <string name="noLogin">不登录进入</string>
+    <string name="loginAPP">登录平台</string>
+    <string name="username">账号</string>
+    <string name="password">密码</string>
+    <string name="goToRegister">立即注册</string>
+    <string name="forget">忘记密码</string>
+
+    <!--MainActivity-->
+    <string name="user_name">Pantiy</string>
+    <string name="user_state">在线</string>
+    <string name="des_userAvatar">用户头像</string>
+    <string name="query_hint">搜索</string>
+    <string name="device">设备</string>
+    <string name="contact">联系人</string>
+    <string name="message">消息</string>
+    <string name="des_deviceIcon">设备头像</string>
+    <string name="device_name">设备名称</string>
+    <string name="login_time">登录时间 2015-01-01 12:00</string>
+    <string name="device_state">可控制</string>
+    <string name="lastMessageTime">17:00</string>
+    <string name="findNewDevice">发现新设备</string>
+    <string name="slogan">玩转智能设备，发现新生活</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="check">验证</string>
+    <string name="next">下一步</string>
+    <string name="phoneNumber">输入手机号</string>
+    <string name="nickname">昵称</string>
+    <string name="sex">性别</string>
+    <string name="eMail">邮箱</string>
+    <string name="account">用户名</string>
+    <string name="checkPassword">确认密码</string>
+    <string name="Register">注册</string>
+    <string name="back">上一步</string>
+    <string name="device_contact">设备关联人</string>
+    <string name="inform">通知</string>
+    <string name="alarm">警报</string>
+    <string name="chat">聊天</string>
+</resources>
