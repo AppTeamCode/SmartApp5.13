@@ -1,5 +1,6 @@
 package app.cddic.com.smarter.activity.base;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -115,8 +116,8 @@ public class MainActivity extends BaseActivity {
         mUserAvatarIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, SingleFragmentActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, SingleFragmentActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -180,8 +181,8 @@ public class MainActivity extends BaseActivity {
         if (groupPosition != DrawerItemsAdapter.EXPANDABLE_POSITION) {
             return;
         }
-//        Intent intent = SettingActivity.newInstance(this, childPosition);
-//        startActivity(intent);
+        Intent intent = SettingActivity.newInstance(this, childPosition);
+        startActivity(intent);
     }
 
     private void switchCurrentState(int current) {

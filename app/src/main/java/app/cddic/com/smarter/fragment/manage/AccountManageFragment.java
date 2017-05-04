@@ -1,6 +1,7 @@
 package app.cddic.com.smarter.fragment.manage;
 
 
+import app.cddic.com.smarter.R;
 
 /**
  * SmartSecurity-Manager
@@ -33,6 +34,6 @@ public class AccountManageFragment extends ManageFragment {
 
     @Override
     protected int setLayoutRes() {
-        return 0;
+        return R.layout.fragment_device;
     }
 }
