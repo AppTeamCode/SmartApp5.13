@@ -1,6 +1,7 @@
 package app.cddic.com.smarter.global;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -31,6 +32,10 @@ public class SmartApplication extends Application {
     byte bLoginState; //登录平台状态，0离线，1验证用户，2验证密码，3在线
     byte bNetState; //当前网络状态，0无网络，1wifi 2流量 3蓝牙
     SmartService mSrv;  //service指针
+
+    public static Context getSmartApplication() {
+        return new SmartApplication();
+    }
 
     public DBHelper getmHelper(){
         return mHelper;

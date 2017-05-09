@@ -5,8 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import app.cddic.com.smarter.R;
+import app.cddic.com.smarter.utils.CommonViewHolder;
 
 
 /**
@@ -43,6 +46,13 @@ public class DeviceItemsAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.list_item_for_device,viewGroup,false);
         }
+        LinearLayout left = CommonViewHolder.get(view, R.id.left_deviceItem);
+        left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "click", Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
 }
