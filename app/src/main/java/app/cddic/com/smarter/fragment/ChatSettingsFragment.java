@@ -5,10 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import app.edu.cdu.com.smartsecurity_manager.R;
-import app.edu.cdu.com.smartsecurity_manager.ui.widget.TopView;
-import app.edu.cdu.com.smartsecurity_manager.utils.CommonViewHolder;
+import app.cddic.com.smarter.R;
+import app.cddic.com.smarter.utils.CommonViewHolder;
+import app.cddic.com.smarter.widget.TopView;
 
 /**
  * Created by Hai on 2017/4/25.
@@ -22,13 +21,13 @@ public class ChatSettingsFragment extends BaseFragment{
     private Button DeleteContactBtn;
 
     @Override
-    protected void initViews(View view) {
-        mTopView = (TopView) CommonViewHolder.get(view,R.id.chat_setting_topView);
+    protected void initViews() {
+        mTopView =  CommonViewHolder.get(mView,R.id.chat_setting_topView);
         mTopView.setText("返回","聊天设置",null);
-        ChatLogTv = (TextView) CommonViewHolder.get(view,R.id.chat_log_tv);
-        ChatFileTv = (TextView) CommonViewHolder.get(view,R.id.chat_file_tv);
-        ClearChatInformationTv = (TextView) CommonViewHolder.get(view,R.id.clear_information_tv);
-        DeleteContactBtn = (Button) CommonViewHolder.get(view,R.id.delete_contact_btn);
+        ChatLogTv = CommonViewHolder.get(mView, R.id.chat_log_tv);
+        ChatFileTv =  CommonViewHolder.get(mView,R.id.chat_file_tv);
+        ClearChatInformationTv = CommonViewHolder.get(mView,R.id.clear_information_tv);
+        DeleteContactBtn = CommonViewHolder.get(mView,R.id.delete_contact_btn);
     }
 
     @Override

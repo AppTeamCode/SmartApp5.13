@@ -5,9 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
 
-import app.edu.cdu.com.smartsecurity_manager.R;
-import app.edu.cdu.com.smartsecurity_manager.ui.widget.TopView;
-import app.edu.cdu.com.smartsecurity_manager.utils.CommonViewHolder;
+import app.cddic.com.smarter.R;
+import app.cddic.com.smarter.utils.CommonViewHolder;
+import app.cddic.com.smarter.widget.TopView;
 
 /**
  * Created by Hai on 2017/4/24.
@@ -20,11 +20,11 @@ public class DevicesSettingsFragment extends BaseFragment{
     private Button NoAmendBtn,LogAgainBtn;
 
     @Override
-    protected void initViews(View view) {
-        mTopView = (TopView) CommonViewHolder.get(view,R.id.devices_settings_topView);
+    protected void initViews() {
+        mTopView = (TopView) CommonViewHolder.get(mView,R.id.devices_settings_topView);
         mTopView.setText("返回","设备设置",null);
-        NoAmendBtn = (Button)CommonViewHolder.get(view,R.id.abandon_modification_button);
-        LogAgainBtn = (Button)CommonViewHolder.get(view,R.id.login_again_button);
+        NoAmendBtn = (Button)CommonViewHolder.get(mView, R.id.abandon_modification_button);
+        LogAgainBtn = (Button)CommonViewHolder.get(mView,R.id.login_again_button);
     }
 
     @Override

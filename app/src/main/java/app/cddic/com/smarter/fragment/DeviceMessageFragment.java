@@ -5,11 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
 
-import app.edu.cdu.com.smartsecurity_manager.R;
-import app.edu.cdu.com.smartsecurity_manager.ui.widget.TopView;
-import app.edu.cdu.com.smartsecurity_manager.utils.CommonViewHolder;
-
-import static app.edu.cdu.com.smartsecurity_manager.R.id.send_message_btn;
+import app.cddic.com.smarter.R;
+import app.cddic.com.smarter.utils.CommonViewHolder;
+import app.cddic.com.smarter.widget.TopView;
 
 /**
  * Created by Hai on 2017/4/26.
@@ -22,10 +20,10 @@ public class DeviceMessageFragment extends BaseFragment{
     private Button SendMessageBtn;
 
     @Override
-    protected void initViews(View view) {
-        mTopView = (TopView) CommonViewHolder.get(view, R.id.device_message_topView);
+    protected void initViews() {
+        mTopView = (TopView) CommonViewHolder.get(mView, R.id.device_message_topView);
         mTopView.setText("返回","设备消息",null);
-        SendMessageBtn = (Button)CommonViewHolder.get(view, send_message_btn);
+        SendMessageBtn = (Button)CommonViewHolder.get(mView, R.id.send_message_btn);
 
     }
 
