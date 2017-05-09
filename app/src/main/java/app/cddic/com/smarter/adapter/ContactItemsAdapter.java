@@ -8,6 +8,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import app.cddic.com.smarter.R;
+import app.cddic.com.smarter.utils.CommonViewHolder;
 
 /**
  * SmartSecurity-Manager
@@ -68,11 +69,11 @@ public class ContactItemsAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext)
                     .inflate(R.layout.list_item_for_contact_group, parent, false);
-            TextView contactGroupName = (TextView) convertView.findViewById(R.id.contactGroupName_tv);
-            contactGroupName.setText(sContactGroupItems[groupPosition]);
-            TextView contactGroupState = (TextView) convertView.findViewById(R.id.contactGroupState_tv);
-            contactGroupState.setText("1/2");
         }
+        TextView contactGroupName = CommonViewHolder.get(convertView, R.id.contactGroupName_tv);
+        contactGroupName.setText(sContactGroupItems[groupPosition]);
+        TextView contactGroupState = CommonViewHolder.get(convertView, R.id.contactGroupState_tv);
+        contactGroupState.setText("1/2");
         return convertView;
     }
 
@@ -80,13 +81,13 @@ public class ContactItemsAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.list_item_for_contact, parent, false);
-            TextView contactName = (TextView) convertView.findViewById(R.id.contactName_tv);
-            contactName.setText(sContactChildItems[groupPosition][childPosition]);
-            TextView contactUserType = (TextView) convertView.findViewById(R.id.contactUserType_tv);
-            contactUserType.setText("一般用户");
-            TextView contactState = (TextView) convertView.findViewById(R.id.contactState_tv);
-            contactState.setText("在线");
         }
+        TextView contactName = CommonViewHolder.get(convertView, R.id.contactName_tv);
+        contactName.setText(sContactChildItems[groupPosition][childPosition]);
+        TextView contactUserType = CommonViewHolder.get(convertView, R.id.contactUserType_tv);
+        contactUserType.setText("一般用户");
+        TextView contactState = CommonViewHolder.get(convertView, R.id.contactState_tv);
+        contactState.setText("在线");
         return convertView;
     }
 
