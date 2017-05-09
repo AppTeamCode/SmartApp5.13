@@ -1,8 +1,12 @@
 package app.cddic.com.smarter.fragment;
 
+import android.content.Intent;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import app.cddic.com.smarter.R;
+import app.cddic.com.smarter.activity.base.ChatActivity;
 import app.cddic.com.smarter.adapter.ContactItemsAdapter;
 
 
@@ -28,7 +32,16 @@ public class ContactFragment extends BaseFragment {
 
     @Override
     protected void setupListeners() {
-
+        mContactElv.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                String contactName = (String) parent.getExpandableListAdapter()
+                        .getChild(groupPosition, childPosition);
+                Intent intent = ChatActivity.newInstance(getActivity(), contactName);
+                startActivity(intent);
+                return true;
+            }
+        });
     }
 
     @Override

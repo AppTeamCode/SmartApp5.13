@@ -15,13 +15,12 @@ import app.cddic.com.smarter.fragment.ChatFragment;
  * Copyright © 2017 All rights Reserved by Pantiy
  */
 
-public class SingleFragmentActivity extends BaseActivity {
+public abstract class SingleFragmentActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_fragment);
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = createFragment();
         Log.d("TAG","测试");
@@ -35,7 +34,5 @@ public class SingleFragmentActivity extends BaseActivity {
 
     }
 
-    private Fragment createFragment() {
-        return new ChatFragment();
-    }
+    protected abstract Fragment createFragment();
 }

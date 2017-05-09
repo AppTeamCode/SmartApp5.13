@@ -41,7 +41,7 @@
         <activity android:name=".activity.base.GuideActivity"/>
         <!--我的设置-->
         <activity android:name=".activity.base.SettingActivity"/>
-        <activity android:name=".activity.base.SingleFragmentActivity"/>
+        <activity android:name=".activity.base.ChatActivity"/>
         <!--服务-->
         <service android:name=".service.SmartService"/>
     </application>

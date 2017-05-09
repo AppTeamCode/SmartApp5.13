@@ -1,5 +1,7 @@
 package app.cddic.com.smarter.fragment;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,6 +29,8 @@ import app.cddic.com.smarter.widget.TopView;
 
 public class ChatFragment extends BaseFragment {
 
+    private static final String KEY_CONTACT_NAME = "contactName";
+
     private ChatAdapter mChatAdapter;
 
     private TopView mTopView;
@@ -34,10 +38,19 @@ public class ChatFragment extends BaseFragment {
     private EditText mChatContentEt;
     private Button mSendBtn;
 
+    public static ChatFragment newInstance(String contactName) {
+        ChatFragment chatFragment = new ChatFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(KEY_CONTACT_NAME, contactName);
+        chatFragment.setArguments(args);
+        return chatFragment;
+    }
+
     @Override
     protected void initViews() {
+        String contactName = getArguments().getString(KEY_CONTACT_NAME);
         mTopView = findView(R.id.topView);
-        mTopView.setText("消息", "老王", null);
+        mTopView.setText("消息", contactName, null);
         mChatRv = findView(R.id.chat_recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setStackFromEnd(true);
