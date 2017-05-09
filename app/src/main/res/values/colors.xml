@@ -7,10 +7,10 @@
     <color name="colorLightText">#463c3c</color>
     <drawable name="clr_normal">#1f000000</drawable>
     <drawable name="clr_pressed">#005da4</drawable>
-    <color name="colorMessageRadioButtonChecked">#6e6363</color>
     <color name="colorButton">#66ccff</color>
     <color name="colortextview1">#6c0124</color>
     <color name="colortextview2">#492c2c</color>
     <color name="colortextview3">#264c72</color>
->>>>>>> Stashed changes
+    <color name="colorMessageRadioButtonChecked">#6E6363</color>
+
 </resources>

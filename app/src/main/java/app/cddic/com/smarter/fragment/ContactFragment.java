@@ -20,7 +20,7 @@ public class ContactFragment extends BaseFragment {
     private ExpandableListView mContactElv;
 
     @Override
-    protected void initViews() {
+        protected void initViews() {
         mContactElv = (ExpandableListView) mView.findViewById(R.id.contact_elv);
     }
 

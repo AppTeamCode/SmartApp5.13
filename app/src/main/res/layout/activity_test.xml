@@ -75,11 +75,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/app_exit" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="发现的前端设备："
-            android:id="@+id/show_devinf" />
+
+    <TextView
+        android:id="@+id/show_devinf"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="发现的前端设备：" />
 </LinearLayout>
 
