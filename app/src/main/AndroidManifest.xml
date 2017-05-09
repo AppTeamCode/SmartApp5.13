@@ -41,7 +41,9 @@
         <activity android:name=".activity.base.GuideActivity"/>
         <!--我的设置-->
         <activity android:name=".activity.base.SettingActivity"/>
-        <!--服务-->
+
+        <activity android:name=".activity.base.ChatActivity"/>
+
         <service android:name=".service.SmartService"/>
     </application>
 </manifest>
