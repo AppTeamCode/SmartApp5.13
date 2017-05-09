@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="   "
+
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:background="@color/colorPrimary"
+            android:id="@+id/textView"
+            android:layout_width="84dp"
+            android:layout_height="90dp"
+            android:padding="10dp"
+            android:text="设备名称"
+            android:textSize="30dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/plugin_id"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:padding="5dp"
+                android:text="    插件：88888888888   v2.1"
+                android:textSize="20dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+
+                <Button
+                    android:id="@+id/del_button"
+                    android:layout_width="133dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="left|bottom"
+                    android:text="删除"
+                    android:textSize="20dp"/>
+
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="45dp"
+                    />
+
+                <Button
+
+                    android:id="@+id/update_button"
+                    android:layout_width="133dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="left|bottom"
+                    android:text="更新"
+                    android:textSize="20dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

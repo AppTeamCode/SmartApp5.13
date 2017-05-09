@@ -64,7 +64,7 @@ public class SettingActivity extends BaseActivity {
         mTopView.setupListeners(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+               finish();
             }
         }, null);
     }

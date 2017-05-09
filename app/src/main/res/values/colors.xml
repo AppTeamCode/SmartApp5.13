@@ -6,4 +6,6 @@
     <color name="colorDarkText">#1d1919</color>
     <color name="colorLightText">#463c3c</color>
     <color name="colorMessageRadioButtonChecked">#6E6363</color>
+    <drawable name="clr_normal">#1f000000</drawable>
+    <drawable name="clr_pressed">#005da4</drawable>
 </resources>

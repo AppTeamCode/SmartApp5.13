@@ -23,18 +23,18 @@ public class DrawerItemsAdapter extends BaseExpandableListAdapter {
 
     private static final String TAG = "DrawerItemsAdapter";
 
-    private static final String[] sDrawerGroupItems = new String[] {"我的资料", "我的收藏", "我的设置", "关于与帮助"};
-    private static final String[][] sDrawerChildItems = new String[][] { null, null,
+    private static final String[] sDrawerGroupItems = new String[]{"我的资料", "我的收藏", "我的设置", "关于与帮助"};
+    private static final String[][] sDrawerChildItems = new String[][]{null, null,
             {"账号管理", "消息管理", "流量管理", "记录管理", "隐私管理", "插件管理"},
             null};
     public static final int ABOUT_AND_HELP = 3;
     public static final int EXPANDABLE_POSITION = 2;
-//    public static final int ACCOUNT_MANAGE = 0;
-//    public static final int MESSAGE_MANAGE = 1;
-//    public static final int DATA_MANAGE = 2;
-//    public static final int HISTORY_MANAGE = 3;
-//    public static final int PRIVACY_MANAGE = 4;
-//    public static final int PLUGIN_MANAGE = 5;
+    public static final int ACCOUNT_MANAGE = 0;
+    public static final int MESSAGE_MANAGE = 1;
+    public static final int DATA_MANAGE = 2;
+    public static final int HISTORY_MANAGE = 3;
+    public static final int PRIVACY_MANAGE = 4;
+    public static final int PLUGIN_MANAGE = 5;
 
     private Context mContext;
 
