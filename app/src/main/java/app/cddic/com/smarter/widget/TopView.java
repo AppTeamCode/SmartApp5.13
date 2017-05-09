@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import app.cddic.com.smarter.R;
 
+
 /**
  * SmartApp
  * app.cddic.com.smarter.widget

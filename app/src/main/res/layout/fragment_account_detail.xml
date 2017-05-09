@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <app.cddic.com.smarter.widget.TopView
+        android:id="@+id/accout_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></app.cddic.com.smarter.widget.TopView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/colortextview3"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/avatar"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="名称: 张师傅"
+            android:textColor="@color/colortextview2"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/dark_gray_background"
+            android:paddingLeft="10dp"
+            android:text="一般用户"
+            android:textColor="@color/colortextview1"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/setbar_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/setbar_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="性别： 男"
+            android:textColor="@color/colorDarkText"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/setbar_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="当前状态：在线"
+            android:textColor="@color/colorDarkText"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/setbar_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="添加联系人时间： 2012/02/02"
+            android:textColor="@color/colorDarkText"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/setbar_bg"
+            android:drawableRight="@android:drawable/ic_menu_edit"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="分组： 我的好友"
+            android:textColor="@color/colorDarkText"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/setbar_bg"
+            android:drawableRight="@android:drawable/ic_menu_edit"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="别名： 张师傅"
+            android:textColor="@color/colorDarkText"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/setbar_bg"
+            android:drawableRight="@drawable/ic_btn_search_go"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="二维码："
+            android:textColor="@color/colorDarkText"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:background="@color/colorButton"
+            android:text="发消息"
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp"/>
+    </LinearLayout>
+</LinearLayout>

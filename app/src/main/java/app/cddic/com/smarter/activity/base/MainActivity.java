@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -24,9 +25,6 @@ import java.util.List;
 import app.cddic.com.smarter.R;
 import app.cddic.com.smarter.adapter.DrawerFragmentPagerAdapter;
 import app.cddic.com.smarter.adapter.DrawerItemsAdapter;
-import app.cddic.com.smarter.fragment.manage.HistoryManageFragment;
-import app.cddic.com.smarter.fragment.manage.PluginManageFragment;
-import app.cddic.com.smarter.fragment.manage.PrivacyManageFragment;
 
 
 public class MainActivity extends BaseActivity {
@@ -120,8 +118,7 @@ public class MainActivity extends BaseActivity {
         mUserAvatarIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SingleFragmentActivity.class);
-                startActivity(intent);
+
             }
         });
 
@@ -187,27 +184,6 @@ public class MainActivity extends BaseActivity {
         }
         Intent intent = SettingActivity.newInstance(this, childPosition);
         startActivity(intent);
-        FragmentManager fm=getSupportFragmentManager();
-        switch (childPosition){
-            case DrawerItemsAdapter.HISTORY_MANAGE:
-                setContentView(R.layout.activity_setting);
-            HistoryManageFragment fragment_h=new HistoryManageFragment();
-            fm.beginTransaction().replace(R.id.fragment_container,fragment_h).commit();
-            break;
-            case  DrawerItemsAdapter.PLUGIN_MANAGE:
-                setContentView(R.layout.activity_setting);
-                PluginManageFragment fragment_pl=new PluginManageFragment();
-                fm.beginTransaction().replace(R.id.fragment_container,fragment_pl).commit();
-                break;
-            case DrawerItemsAdapter.PRIVACY_MANAGE:
-                setContentView(R.layout.activity_setting);
-                PrivacyManageFragment fragment_pr=new PrivacyManageFragment();
-                fm.beginTransaction().replace(R.id.fragment_container,fragment_pr).commit();
-                break;
-            default:
-                break;
-
-        }
     }
 
     private void switchCurrentState(int current) {
