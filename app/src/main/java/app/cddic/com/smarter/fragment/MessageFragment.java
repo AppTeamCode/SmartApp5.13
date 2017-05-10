@@ -1,7 +1,9 @@
 package app.cddic.com.smarter.fragment;
 
+import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -10,6 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.cddic.com.smarter.R;
+import app.cddic.com.smarter.activity.base.ChatActivity;
+import app.cddic.com.smarter.adapter.AlarmMessageItemsAdapter;
+import app.cddic.com.smarter.adapter.ChatMessageItemsAdapter;
+import app.cddic.com.smarter.adapter.InformMessageItemsAdapter;
 
 
 /**
@@ -49,7 +55,9 @@ public class MessageFragment extends BaseFragment {
 
     @Override
     protected void setupAdapters() {
-
+        mListViews.get(ALARM).setAdapter(new AlarmMessageItemsAdapter(getActivity()));
+        mListViews.get(INFORM).setAdapter(new InformMessageItemsAdapter(getActivity()));
+        mListViews.get(CHAT).setAdapter(new ChatMessageItemsAdapter(getActivity()));
     }
 
     @Override
@@ -73,6 +81,15 @@ public class MessageFragment extends BaseFragment {
                         break;
                 }
                 switchMessageListView(current);
+            }
+        });
+
+        mListViews.get(CHAT).setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = ChatActivity.newInstance(getActivity(),
+                        (String ) mListViews.get(CHAT).getAdapter().getItem(position));
+                startActivity(intent);
             }
         });
     }
