@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <app.edu.cdu.com.smartsecurity_manager.ui.widget.TopView
+    <app.cddic.com.smarter.widget.TopView
         android:id="@+id/add_contact_topView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></app.edu.cdu.com.smartsecurity_manager.ui.widget.TopView>
+        android:layout_height="wrap_content"/>
 
     <SearchView
         android:id="@+id/add_contact_searchView"

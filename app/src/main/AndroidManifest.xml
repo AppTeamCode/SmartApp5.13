@@ -44,6 +44,8 @@
 
         <activity android:name=".activity.base.ChatActivity"/>
 
+        <activity android:name=".activity.base.ContactActivity"/>
+
         <!--服务-->
         <service android:name=".service.SmartService"/>
     </application>

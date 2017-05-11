@@ -1,5 +1,6 @@
 package app.cddic.com.smarter.activity.base;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -40,11 +42,14 @@ public class MainActivity extends BaseActivity {
     private DrawerLayout mDrawerLayout;
     private ViewPager mViewPager;
     private ImageView mUserAvatarOnTopBar;
+    private ImageView mMoreIv;
     private ImageView mUserAvatarIv;
     private RadioGroup mBottomBarRadioGroup;
     private TextView mCurrentFragmentNameTv;
     private SearchView mSearchView;
     private ExpandableListView mDrawerItemsElv;
+
+    private int mCurrent = -1;
 
     private int[] mFragmentName = new int[] {R.string.device, R.string.contact, R.string.message};
     private List<RadioButton> mRadioButtonList = new ArrayList<>();
@@ -83,6 +88,7 @@ public class MainActivity extends BaseActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mUserAvatarOnTopBar = (ImageView) findViewById(R.id.userAvatarOnTopBar_ImageView);
+        mMoreIv = (ImageView) findViewById(R.id.more_imageView);
         mUserAvatarIv = (ImageView) findViewById(R.id.userAvatar_ImageView);
         mSearchView = (SearchView) findViewById(R.id.searchView);
         changeSearchViewStyle();
@@ -132,6 +138,30 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
+
+        mMoreIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (mCurrent) {
+                    case CONTACT:
+                        new AlertDialog.Builder(MainActivity.this)
+                                .setItems(new String[]{"添加新联系人"},
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Intent intent = ContactActivity.newInstance(MainActivity.this,
+                                                        ContactActivity.Type.ADD_CONTACT);
+                                                startActivity(intent);
+                                            }
+                                        })
+                                .show();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -151,22 +181,21 @@ public class MainActivity extends BaseActivity {
         mBottomBarRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                int current;
                 switch (i) {
                     case R.id.device_radioButton:
-                        current = DEVICE;
+                        mCurrent = DEVICE;
                         break;
                     case R.id.contact_radioButton:
-                        current = CONTACT;
+                        mCurrent = CONTACT;
                         break;
                     case R.id.message_radioButton:
-                        current = MESSAGE;
+                        mCurrent = MESSAGE;
                         break;
                     default:
-                        current = DEVICE;
+                        mCurrent = DEVICE;
                         break;
                 }
-                switchCurrentState(current);
+                switchCurrentState(mCurrent);
             }
         });
         mDrawerItemsElv.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
