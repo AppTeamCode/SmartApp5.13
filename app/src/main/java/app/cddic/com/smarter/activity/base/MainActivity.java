@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.cddic.com.smarter.R;
+import app.cddic.com.smarter.activity.base.DrawerActivity.Type;
 import app.cddic.com.smarter.adapter.DrawerFragmentPagerAdapter;
 import app.cddic.com.smarter.adapter.DrawerItemsAdapter;
 
@@ -178,6 +179,7 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+
         mBottomBarRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
@@ -198,6 +200,28 @@ public class MainActivity extends BaseActivity {
                 switchCurrentState(mCurrent);
             }
         });
+
+        mDrawerItemsElv.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                Intent intent;
+                switch (groupPosition) {
+                    case Type.MY_INFORMATION:
+                        intent = DrawerActivity.newInstance(MainActivity.this,
+                                Type.MY_INFORMATION);
+                        startActivity(intent);
+                        break;
+
+                    case Type.MY_COLLECTION:
+                        intent = DrawerActivity.newInstance(MainActivity.this,
+                                Type.MY_COLLECTION);
+                        startActivity(intent);
+                        break;
+                }
+                return true;
+            }
+        });
+
         mDrawerItemsElv.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {

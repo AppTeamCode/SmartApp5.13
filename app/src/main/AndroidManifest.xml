@@ -46,6 +46,8 @@
 
         <activity android:name=".activity.base.ContactActivity"/>
 
+        <activity android:name=".activity.base.DrawerActivity"/>
+
         <!--服务-->
         <service android:name=".service.SmartService"/>
     </application>
