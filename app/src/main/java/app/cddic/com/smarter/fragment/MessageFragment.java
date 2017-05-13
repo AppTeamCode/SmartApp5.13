@@ -84,6 +84,24 @@ public class MessageFragment extends BaseFragment {
             }
         });
 
+        mListViews.get(ALARM).setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = ChatActivity.newInstance(getActivity(),
+                        (String ) mListViews.get(ALARM).getAdapter().getItem(position));
+                startActivity(intent);
+            }
+        });
+
+        mListViews.get(INFORM).setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = ChatActivity.newInstance(getActivity(),
+                        (String ) mListViews.get(INFORM).getAdapter().getItem(position));
+                startActivity(intent);
+            }
+        });
+
         mListViews.get(CHAT).setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -12,7 +12,7 @@ import app.cddic.com.smarter.widget.TopView;
  * Created by 小帆哥 on 2017/4/25.
  */
 
-public class AboutAndHelpFragment extends BaseFragment {
+public class SupportFragment extends BaseFragment {
     private TopView mTopView;
 
     @Override
@@ -41,6 +41,6 @@ public class AboutAndHelpFragment extends BaseFragment {
 
             @Override
             protected int setLayoutRes() {
-                return R.layout.fragment_about_and_help;
+                return R.layout.fragment_support;
             }
         }

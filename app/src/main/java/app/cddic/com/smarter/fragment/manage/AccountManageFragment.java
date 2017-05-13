@@ -48,8 +48,6 @@ public class AccountManageFragment extends ManageFragment{
         return super.onCreateView(inflater, container, savedInstanceState);
     }        @Override
     protected void initViews() {
-        mTopView = (TopView) mView.findViewById(R.id.account_manage_topView);
-        mTopView.setText("返回", "我的设置", null);
         mTextView1 = (TextView) mView.findViewById(R.id.textview_id_manage_add);
         mTextView2 = (TextView)mView.findViewById(R.id.textview_id_manage_login_setting);
         mTextView3 = (TextView)mView.findViewById(R.id.textview_id_manage_exit);
@@ -107,14 +105,7 @@ public class AccountManageFragment extends ManageFragment{
                 mTextView5.setVisibility(View.VISIBLE);
             }
         });
-        mTopView.setupListeners(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
 
-            }
-        },null);
         mTextView_exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -217,6 +217,14 @@ public class MainActivity extends BaseActivity {
                                 Type.MY_COLLECTION);
                         startActivity(intent);
                         break;
+
+                    case Type.SUPPORT:
+                        intent = DrawerActivity.newInstance(MainActivity.this,
+                                Type.SUPPORT);
+                        startActivity(intent);
+                        break;
+                    default:
+                        return false;
                 }
                 return true;
             }

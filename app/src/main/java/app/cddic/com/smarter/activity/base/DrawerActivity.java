@@ -3,9 +3,9 @@ package app.cddic.com.smarter.activity.base;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-
 import app.cddic.com.smarter.fragment.MyCollectionFragment;
 import app.cddic.com.smarter.fragment.MyInformationFragment;
+import app.cddic.com.smarter.fragment.SupportFragment;
 
 /**
  * SmartApp
@@ -36,6 +36,8 @@ public class DrawerActivity extends SingleFragmentActivity {
                 return new MyInformationFragment();
             case Type.MY_COLLECTION:
                 return new MyCollectionFragment();
+            case Type.SUPPORT:
+                return new SupportFragment();
             default:
                 return null;
         }
@@ -44,5 +46,6 @@ public class DrawerActivity extends SingleFragmentActivity {
     public static final class Type {
         public static final int MY_INFORMATION = 0;
         public static final int MY_COLLECTION = 1;
+        public static final int SUPPORT = 3;
     }
 }
