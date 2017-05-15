@@ -2,13 +2,9 @@ package app.cddic.com.smarter.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import app.cddic.com.smarter.R;
 import app.cddic.com.smarter.activity.base.ChatActivity;
@@ -42,7 +38,7 @@ public class ContactDetailFragment extends BaseFragment {
         mTopView.setText("联系人","联系人详情",null);
         mContactNameTv = findView(R.id.contactName_tv);
         mContactNameTv.setText(getArguments().getString(KEY_CONTACT_NAME));
-        mSendMessageBtn = findView(R.id.sendMessage_btn);
+        mSendMessageBtn = findView(R.id.send_message_btn);
     }
     @Override
     protected void setupAdapters() {

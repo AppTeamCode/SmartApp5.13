@@ -1,7 +1,6 @@
 package app.cddic.com.smarter.fragment.manage;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import app.cddic.com.smarter.R;
-import app.cddic.com.smarter.activity.base.MainActivity;
 import app.cddic.com.smarter.widget.TopView;
 
 
@@ -22,23 +20,24 @@ import app.cddic.com.smarter.widget.TopView;
  * Created by asus on 2017/3/28.
  */
 
-public class AccountManageFragment extends ManageFragment{
+public class AccountManageFragment extends ManageFragment {
+
     private TopView mTopView;
-    private TextView mTextView1;
-    private TextView mTextView2;
-    private TextView mTextView3;
-    private TextView mTextView4;
-    private TextView mTextView5;
-    private TextView mTextView6;
-    private TextView mTextView7;
+    private TextView text_id_manage_add;
+    private TextView textView_id_manage_login_setting;
+    private TextView textView_id_manage_exit;
+    private TextView textView_id_manage_test1;
+    private TextView textView_account_manage_test1;
+    private TextView textView_id_manage_name1;
+    private TextView textView_account_manage_name1;
     private TextView mTextView_exit;
     private android.support.v4.app.FragmentManager fm;
     private Fragment fragment;
     private static final String DIALOG_DATE = "DialogDate";
+
     @Override
     protected void setFragmentName() {
-        mFragmentName = "账号管理";
-
+        mFragmentName="账号管理";
     }
 
     @Nullable
@@ -48,16 +47,18 @@ public class AccountManageFragment extends ManageFragment{
         return super.onCreateView(inflater, container, savedInstanceState);
     }        @Override
     protected void initViews() {
-        mTextView1 = (TextView) mView.findViewById(R.id.textview_id_manage_add);
-        mTextView2 = (TextView)mView.findViewById(R.id.textview_id_manage_login_setting);
-        mTextView3 = (TextView)mView.findViewById(R.id.textview_id_manage_exit);
-        mTextView4 = (TextView)mView.findViewById(R.id.textView_id_manage_test1);
-        mTextView5 = (TextView)mView.findViewById(R.id.textView_account_manage_test1);
-        mTextView6 = (TextView)mView.findViewById(R.id.textview_id_manage_name1);
-        mTextView7 = (TextView)mView.findViewById(R.id.textview_account_manage_name1);
+        mTopView = (TopView) mView.findViewById(R.id.account_manage_topView);
+        mTopView.setText("返回", "我的设置", null);
+        text_id_manage_add = (TextView) mView.findViewById(R.id.textview_id_manage_add);
+        textView_id_manage_login_setting = (TextView)mView.findViewById(R.id.textview_id_manage_login_setting);
+        textView_id_manage_exit = (TextView)mView.findViewById(R.id.textview_id_manage_exit);
+        textView_id_manage_test1 = (TextView)mView.findViewById(R.id.textview_id_manage_test1);
+        textView_account_manage_test1 = (TextView)mView.findViewById(R.id.textview_id_manage_name1);
+        textView_id_manage_name1 = (TextView)mView.findViewById(R.id.textview_id_manage_name1);
+        textView_account_manage_name1 = (TextView)mView.findViewById(R.id.textview_account_manage_name1);
         mTextView_exit =(TextView)mView.findViewById(R.id.textview_id_manage_exit);
-        mTextView4.setVisibility(View.VISIBLE);
-        mTextView5.setVisibility(View.INVISIBLE);
+        textView_id_manage_test1.setVisibility(View.VISIBLE);
+        textView_account_manage_test1.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -69,7 +70,7 @@ public class AccountManageFragment extends ManageFragment{
     protected void setupListeners() {
 
         fm = getActivity().getSupportFragmentManager();
-        mTextView1.setOnClickListener(new View.OnClickListener() {
+        text_id_manage_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 fragment = new AddDeviceFragment();
@@ -78,31 +79,32 @@ public class AccountManageFragment extends ManageFragment{
         });
 
 
-        mTextView2.setOnClickListener(new View.OnClickListener() {
+        textView_id_manage_login_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 fragment = new LoginSettingFragment();
                 fm.beginTransaction().replace(R.id.fragment_container,fragment).commit();
             }
         });
-        mTextView3.setOnClickListener(new View.OnClickListener(){
+        textView_id_manage_exit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 FragmentManager manager = getFragmentManager();
+
             }
         });
-        mTextView6.setOnClickListener(new View.OnClickListener() {
+        textView_id_manage_name1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTextView4.setVisibility(View.VISIBLE);
-                mTextView5.setVisibility(View.INVISIBLE);
+                textView_id_manage_test1.setVisibility(View.VISIBLE);
+                textView_account_manage_test1.setVisibility(View.INVISIBLE);
             }
         });
-        mTextView7.setOnClickListener(new View.OnClickListener() {
+        textView_account_manage_name1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTextView4.setVisibility(View.INVISIBLE);
-                mTextView5.setVisibility(View.VISIBLE);
+                textView_id_manage_test1.setVisibility(View.INVISIBLE);
+                textView_account_manage_test1.setVisibility(View.VISIBLE);
             }
         });
 

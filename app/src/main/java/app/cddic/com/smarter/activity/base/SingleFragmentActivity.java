@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+
 import app.cddic.com.smarter.R;
-import app.cddic.com.smarter.fragment.ChatFragment;
 
 /**
  * SmartApp

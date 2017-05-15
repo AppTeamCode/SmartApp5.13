@@ -21,10 +21,11 @@ public class LoginSettingFragment extends ManageFragment {
     private FragmentManager fm;
     private Fragment fragment;
     private TopView mTopView;
-    private TextView mTextView1;
-    private TextView mTextView2;
-    private TextView mTextView3;
-    private TextView mTextView4;@Override
+    private TextView textView_login_setting_in;
+    private TextView textView_login_setting_out;
+    private TextView textview_login_setting_test1;
+    private TextView textview_login_setting_test2;
+    @Override
     protected void setFragmentName() {
         mFragmentName = "登录设置";
 
@@ -41,12 +42,12 @@ public class LoginSettingFragment extends ManageFragment {
 
         mTopView = (TopView) mView.findViewById(R.id.login_setting_topView);
         mTopView.setText("返回", "登录设置", null);
-        mTextView1 = (TextView) mView.findViewById(R.id.textView_login_setting_in);
-        mTextView2 = (TextView)mView.findViewById(R.id.textView_login_setting_out);
-        mTextView3 = (TextView)mView.findViewById(R.id.textview_login_setting_test1);
-        mTextView4 = (TextView)mView.findViewById(R.id.textview_login_setting_test2);
-        mTextView3.setVisibility(View.VISIBLE);
-        mTextView4.setVisibility(View.INVISIBLE);
+        textView_login_setting_in = (TextView) mView.findViewById(R.id.textView_login_setting_in);
+        textView_login_setting_out = (TextView)mView.findViewById(R.id.textView_login_setting_out);
+        textview_login_setting_test1 = (TextView)mView.findViewById(R.id.textview_login_setting_test1);
+        textview_login_setting_test2 = (TextView)mView.findViewById(R.id.textview_login_setting_test2);
+        textview_login_setting_test1.setVisibility(View.VISIBLE);
+        textview_login_setting_test2.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -64,18 +65,18 @@ public class LoginSettingFragment extends ManageFragment {
                 fm.beginTransaction().replace(R.id.fragment_container,fragment).commit();
             }
         },null);
-        mTextView1.setOnClickListener(new View.OnClickListener() {
+        textView_login_setting_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTextView3.setVisibility(View.VISIBLE);
-                mTextView4.setVisibility(View.INVISIBLE);
+                textview_login_setting_test1.setVisibility(View.VISIBLE);
+                textview_login_setting_test2.setVisibility(View.INVISIBLE);
             }
         });
-        mTextView2.setOnClickListener(new View.OnClickListener() {
+        textView_login_setting_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTextView3.setVisibility(View.INVISIBLE);
-                mTextView4.setVisibility(View.VISIBLE);
+                textview_login_setting_test1.setVisibility(View.INVISIBLE);
+                textview_login_setting_test2.setVisibility(View.VISIBLE);
             }
         });
     }

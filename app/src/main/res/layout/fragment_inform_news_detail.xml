@@ -15,7 +15,7 @@
         android:layout_marginTop="20dp"
         android:padding="5dp"
         android:text="张师傅请求成为你的联系人"
-        android:textColor="@color/colortextview1"
+        android:textColor="@color/colorDeepRed"
         android:textSize="18sp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -86,7 +86,7 @@
         android:layout_marginTop="20dp"
         android:text="留言:"
         android:textSize="18sp"
-        android:textColor="@color/colortextview1"/>
+        android:textColor="@color/colorDeepRed"/>
 
     <EditText
         android:layout_width="300dp"
@@ -101,21 +101,23 @@
     android:layout_marginTop="40dp">
 
     <Button
+        android:id="@+id/button_refuse_inform_news_detail"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginLeft="40dp"
         android:background="@color/colorButton"
         android:text="拒绝"
-        android:textSize="18sp"
-        android:textColor="@color/colortextview2"/>
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"/>
 
     <Button
+        android:id="@+id/button_sure_inform_news_detail"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginLeft="130dp"
         android:background="@color/colorButton"
         android:text="确定"
-        android:textSize="18sp"
-        android:textColor="@color/colortextview2"/>
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"/>
 </LinearLayout>
 </LinearLayout>
